@@ -1,0 +1,19 @@
+{
+    "image": "ghcr.io/typst/typst:0.14.0-rc.1",
+    "name": "typst-sdk",
+    "runArgs": [
+        "--network=host",
+        "-h",
+        "typst-sdk"
+    ],
+    "workspaceFolder": "/workspaces/typst-test",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/typst-test,type=bind",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "myriad-dreamin.tinymist"
+            ]
+        }
+    }
+}
