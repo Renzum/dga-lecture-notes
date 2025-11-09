@@ -5,7 +5,11 @@
     ],
     "dictionaryDefinitions": [],
     "dictionaries": [],
-    "words": [],
+    "words": [
+        "Arzumanyan",
+        "pagebreak",
+        "thmbox"
+    ],
     "ignoreWords": [],
     "import": []
 }
