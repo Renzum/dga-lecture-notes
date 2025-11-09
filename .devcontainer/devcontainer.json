@@ -11,8 +11,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "streetsidesoftware.code-spell-checker",
-                "myriad-dreamin.tinymist"
+                "streetsidesoftware.code-spell-checker", // CSpell Spellchecker
+                "myriad-dreamin.tinymist", // Typst Integration
+                "hediet.vscode-drawio" // Draw.io integration for simple graph drawing
             ]
         }
     }

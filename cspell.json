@@ -5,7 +5,14 @@
     ],
     "dictionaryDefinitions": [],
     "dictionaries": [],
-    "words": [],
+    "words": [
+        "Arzumanyan",
+        "forall",
+        "Kruskal's",
+        "pagebreak",
+        "rankdir",
+        "thmbox"
+    ],
     "ignoreWords": [],
     "import": []
 }
