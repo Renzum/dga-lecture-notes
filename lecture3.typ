@@ -226,5 +226,5 @@ For instance, one can use unique IDs to order edges of the same weight. Unique e
 And for the third assumption one can simple add some constant $c$ to all of the edge weight values thus making them all positive without changing the difference between the values.
 
 #remark[
-  An MST can be computed by several greedy algorithms: Kruskal's Algorithm, Primm's Algorithm, etc.
+  An MST can be computed by several greedy algorithms: Kruskal's Algorithm, Prim's Algorithm, etc.
 ]
