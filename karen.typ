@@ -41,7 +41,7 @@ The simplest way to accomplish this would be with a naive algorithm which floods
 ) <flooding>
 
 #figure(caption: "Flooding process example.")[
-  #image("karen/flooding_graph.drawio.svg")
+  #image("karen/flooding_graph.svg")
 ]
 
 Trivially, we can see that eventually the entire graph will know the message $M$ and the algorithm terminates since all nodes send the message out only once.
@@ -100,12 +100,12 @@ The reason why distances to the source remain the same is simply due to the fact
   rows: auto,
   [
     #figure(caption: "Flooding Algorithm with Parent Choosing.")[
-      #image("karen/BFS-tree-1.drawio.svg")
+      #image("karen/BFS-tree-1.svg")
     ]<bfs1>
   ],
   [
     #figure(caption: "Flooding Algorithm with Parent Choosing.")[
-      #image("karen/BFS-tree-2.drawio.svg")
+      #image("karen/BFS-tree-2.svg")
     ]<bfs2>
   ],
 )
