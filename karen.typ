@@ -3,7 +3,7 @@
 #show: thmbox-init()
 
 #import "@preview/algorithmic:1.0.6"
-#import algorithmic: algorithm-figure, style-algorithm
+#import algorithmic: *
 
 
 = Global Problems: Computing Spanning Trees
@@ -18,19 +18,16 @@ The simplest way to accomplish this would be with a naive algorithm which floods
 #algorithm-figure(
   "Flooding",
   {
-    import algorithmic: *
     Comment[Run on $s$]
   },
   {
     $s "sends message" M "to all neighbors"$
   },
   {
-    import algorithmic: *
     LineBreak
     Comment[Run on all nodes $v in V "such that" v != s$]
   },
   {
-    import algorithmic: *
     If(
       [$v$ receives message $M$ for the first time from neighbor $u$],
       {
@@ -44,14 +41,15 @@ The simplest way to accomplish this would be with a naive algorithm which floods
 ) <flooding>
 
 #figure(caption: "Flooding process example.")[
-  #include "flooding_graph.typ"
+  #image("karen/flooding_graph.drawio.svg")
 ]
 
 Trivially, we can see that eventually the entire graph will know the message $M$ and the algorithm terminates since all nodes send the message out only once.
 
-#pagebreak()
 
 #lemma[Lemma][][All nodes $v in V$ know the message $M$ after at most $bold(D)$ rounds where $bold(D)$ is the diameter of $G$.]<messages-in-d>
+
+#pagebreak()
 
 #proof[@messages-in-d][
   We perform an induction on $r$.
@@ -66,19 +64,16 @@ A spanning tree can be defined as a connected graph without any cycles. Interest
 #algorithm-figure(
   "Tree from Flooding",
   {
-    import algorithmic: *
     Comment[Run on $s$]
   },
   {
     $s "sends message" M "to all neighbors"$
   },
   {
-    import algorithmic: *
     LineBreak
     Comment[Run on all nodes $v in V "such that" v != s$]
   },
   {
-    import algorithmic: *
     If(
       [$v$ receives message $M$ for the first time from neighbor $u$],
       {
@@ -94,13 +89,29 @@ A spanning tree can be defined as a connected graph without any cycles. Interest
   },
 ) <flooding-tree>
 
-#include "bfs_tree.typ"
-
 #definition[Breadth-First-Search (BFS) Tree on Graph G][
   A BFS Tree $T$ on graph $G$ with source node $s$ means that any node $v in V$ with distance $r$ from $s$ on the graph $G$ will also have the same distance from $s$ on BFS Tree $T$.
 ]
 
 The reason why distances to the source remain the same is simply due to the fact that if a node $v$ received the message for the first time on round $r$, it means that it was $r$ nodes away from the source on the original graph $G$.
+
+#grid(
+  columns: (1fr, 1fr),
+  rows: auto,
+  [
+    #figure(caption: "Flooding Algorithm with Parent Choosing.")[
+      #image("karen/BFS-tree-1.drawio.svg")
+    ]<bfs1>
+  ],
+  [
+    #figure(caption: "Flooding Algorithm with Parent Choosing.")[
+      #image("karen/BFS-tree-2.drawio.svg")
+    ]<bfs2>
+  ],
+)
+
+@bfs1 shows an example graph with a source node $s$ and the the arrows show the path which the message $M$ gets forwarded with. The green edges indicate the choice of the parent node for each node that receives the message. @bfs2 shows the constructed BFS Tree with the chosen parents.
+
 
 #lemma[Lemma][The computed tree $T$ is a Breadth-First-Search (BFS) tree of $G$ and thus the height of the BFS $T$ is at most the diameter of $G$.]
 
@@ -150,8 +161,6 @@ With the task set up, the remaining question is: "How fast can we solve this?"
   Given a rooted BFS tree, the task can be solved in $O(bold(D) + k)$ rounds in the *CONGEST* model.
 ] <dk-complexity>
 
-#pagebreak()
-
 *Sketch of the proof for @dk-complexity:* We provide a rough sketch of the proof now. For the detailed proof see Exercise Sheet 3.
 
 The process relies on calculating the minimum values of each $alpha$ partition in a bottom up manner. And if a node $v$ possesses multiple pairs, it must send the smaller $alpha$ value first.
@@ -200,7 +209,6 @@ Let us begin by defining what a Minimum Spanning Tree is.
   $
 ]
 
-#pagebreak()
 
 To simplify what's to come, we make two important assumptions:
 + All edge weights are $O(log n)$-bit integers.
