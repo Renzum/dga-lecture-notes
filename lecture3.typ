@@ -18,3 +18,4 @@
 #set heading(numbering: "1.")
 
 #include "karen.typ" // Include Karen's Part which is the first half of the lecture (until Borůvka's algorithm)
+#include "kevin.typ" // Include Kevin's Part which is the second half of the lecture notes (from Boruvka's Algorithm)
